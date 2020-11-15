@@ -1,0 +1,54 @@
+<section>
+	<div class="feature-product-slider customer-viewed">
+		<div class="container">
+			<div class="site-heading-area">
+				<h2 class="section-heading">Customer Also Viewed</h2>
+				<span></span>
+			</div>
+			<div class="row">
+				<div class="owl-two owl-carousel owl-theme">
+					{% for product in featured %}
+
+						<div class="item">
+							<div class="equal-height">
+								<form method="post">
+									<input type="hidden" name="product" value="1">
+									<input type="hidden" name="size" value="18">
+									<button class="wishlist-btn" type="button" onclick="wishlist.toggle(this)">
+									<div class="wrapper">
+									<div class="icon-wishlist"></div>
+									</div>
+								</button>
+							</form>
+								<a href="#">
+									<div class="feature-product">
+								<img src="/image/product/{{product.id}}" alt="{{product.name}}">
+							</div>
+							<div class="product-title-description">
+								<h4>{{product.name}}</h4>
+								<p>Testing Description</p>
+								<div class="product-price">
+									<p>
+										{{"%0.02f"|format(product.dmrp)}} د.إ 
+									</p>
+									<p>
+										{{"%0.02f"|format(product.mrp)}} د.إ 
+									</p>
+
+								</div>
+								<div class="product-buy">
+									<button onclick="cart.add({{product.id}})">
+										<i class="fa fa-cart-plus"></i>Add to Cart
+									</button>
+									<a href="/cart">Buy Now</a>
+								</div>
+							</div>
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

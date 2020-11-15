@@ -1,0 +1,18 @@
+{% import "macros/comps.twig" as comp %}
+<section>
+	<div class="feature-product-slider">
+		<div class="container">
+			<div class="site-heading-area">
+				<h2 class="section-heading">Big<span>Deal</span>
+				</h2>
+				<span></span>
+			</div>
+
+				<div class="owl-two owl-carousel owl-theme">
+					{% for product in bigdeal %}
+						{{comp.productCard(product,cur,rate)}}
+					{% endfor %}
+				</div>
+		</div>
+	</div>
+</section>

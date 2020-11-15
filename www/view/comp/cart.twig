@@ -1,0 +1,54 @@
+<h4 class="mb-3">Your Cart
+	<span>({{cart|length}}
+		items)</span>
+</h4>
+{% for item in cart %}
+	<div class="wishlist-container">
+		<form method="post">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="wishlist-image">
+						<img src="/image/product/{{item.product.id}}" alt="{{item.product.name}}">
+					</div>
+				</div>
+
+				<div class="col-md-5">
+					<div class="wishlist-product-description">
+						<h5>{{brand[item.product.brand]}}</h5>
+						<p class="pro-name">{{item.product.name}}
+							</p>
+						<p>Delivered by
+							<span>Comming weekend</span>
+						</p>
+						<p>{{item.product.description}}</p>
+					</div>
+					<div class="cart-wishlist-button">
+
+
+						<input type="hidden" name="product" value={{item.product.id}}>
+						<button type="button" onclick="cart.remove(this)">
+							<i class="fa fa-trash"></i>	Remove</button>
+						<button type="button" onclick=cart.moveToWishlist(this)>
+							<i class="fa fa-heart-o"></i>
+							Move To Wishlist</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="product-price-wishlist">
+						<p>{{cur}}
+							<span>{{"%0.02f"|format(item.product.mrp * rate * item.quant * (1 - item.product.discount / 100 ))}}</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="quantity-wishlist">
+						<label>Qty</label>
+						<input type="number" min="1" name="quant" class="form-control form-control-sm" onchange=cart.update(this) value="{{item.quant}}">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endfor %}

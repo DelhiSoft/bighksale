@@ -1,0 +1,64 @@
+<section
+	class="col-lg-12 connectedSortable">
+	<!-- Custom tabs (Charts with tabs)-->
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-chart-pie mr-1"></i>
+				Slider - Home Page
+			</h3>
+			<div class="card-tools"></div>
+		</div>
+
+		<div class="card-body">
+			<form enctype="multipart/form-data" method="post">
+				<table class="table">
+					<tr>
+						<th>Banner</th>
+						<td>
+							<input class="form-control" name="image" type="file">
+							{% if info.id is defined %}
+								<span>Note: Don't upload a file if you don't want to change it</span>
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<th>ALT</th>
+						<td><input type="text" class="form-control" name="alt" value="{{info.alt}}"></td>
+					</tr>
+					<tr>
+						<th>Banner Text -1</th>
+						<td><input type="text" class="form-control" name="bt1" value="{{info.text[0]}}"></td>
+					</tr>
+					<tr>
+						<th>Banner Text -2</th>
+						<td><input type="text" class="form-control" name="bt2" value="{{info.text[1]}}"></td>
+					</tr>
+					<tr>
+						<th>Banner Text -3</th>
+						<td><input type="text" class="form-control" name="bt3" value="{{info.text[2]}}"></td>
+					</tr>
+					<tr>
+						<th>Button Text</th>
+						<td><input type="text" class="form-control" name="btn_txt" value="{{info.btn_text}}"></td>
+					</tr>
+					<tr>
+						<th>Button Link</th>
+						<td><input type="text" class="form-control" name="btn_link" value="{{info.btn_link}}"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button class="form-control btn-primary">Save</button>
+						</td>
+					</tr>
+				</table>
+				{% if info.id is defined %}
+				<input type="hidden" name="id" value={{info.id}}>
+					<input type="hidden" name="action" value="update-slider">
+				{% else %}
+					<input type="hidden" name="action" value="add-slider">
+				{% endif %}
+			</form>
+		</div>
+	</div>
+</section>

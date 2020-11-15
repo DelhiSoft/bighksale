@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="brand-page">
+			<div class="container">
+				<h2 class="page-title-heading">Brands</h2>
+				<div class="row">
+					{% for brand in brands %}
+						<div class="col-md-4">
+							<div class="brand-wise-box">
+								<a href="javascript:void(0)" onclick="filter.brand({{brand.id}})">
+									<img src="/image/brand/{{brand.id}}" alt="{{brand.name}}">
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		{% include "comp/footer.twig" %}
+		<script type="text/javascript" src="/js/script.min.js"></script>
+	</body>
+</html>

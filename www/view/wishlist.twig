@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="wishlist-and-cart-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 order-md-2 mb-4 order-2">
+                        
+    <ul class="list-group mb-3 bg border-yes position-sticky-top-0 m-t-30">
+	<li class="list-group-item d-flex justify-content-between lh-condensed align-items-center">
+		<div>
+			<input type="text" class="form-control coupon-input" name="coupon" placeholder="Enter Coupon Code or Gift card">
+		</div>
+		<button class="apply-btn btn-theme desabled-btn">Apply</button>
+	</li>
+	<li class="list-group-item d-flex justify-content-between lh-condensed">
+		<div>
+			<h6 class="my-0">Subtotal</h6>
+		</div>
+		<span class="text-muted">HKD 9.00</span>
+	</li>
+	<li class="list-group-item d-flex justify-content-between lh-condensed">
+		<div>
+			<h6 class="my-0">Shipping</h6>
+		</div>
+		<span class="text-muted">HKD 5.00</span>
+	</li>
+	<li class="list-group-item total-li justify-content-between">
+		<span>Total (USD)</span>
+		<small class="text-muted">(Inclusive of VAT)</small>
+		<strong>HKD  14.00</strong>
+	</li>
+		
+	<li class="list-group-item pad-0 total-li justify-content-between">
+		<button class="btn-theme" type="button" onclick="checkout(0)">Checkout Now</button>
+	</li>
+	</ul>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="makepayment">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="opt_naet@yahoo.com">
+    <input type="hidden" name="item_name" value="Fragrance">
+    <input type="hidden" name="item_number" value="1">
+    <input type="hidden" name="amount" value="9">
+    <input type="hidden" name="no_shipping" value="0">
+    <input type="hidden" name="no_note" value="1">
+    <input type="hidden" name="currency_code" value="USD">
+</form>
+					</div>
+										<div class="col-md-8 order-md-1">
+						<h4 class="mb-3">Your Cart
+	<span>(1
+		items)</span>
+</h4>
+	<div class="wishlist-container">
+		<form method="post">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="wishlist-image">
+						<img src="/image/product/8" alt="Product 1">
+					</div>
+				</div>
+
+				<div class="col-md-5">
+					<div class="wishlist-product-description">
+						<h5>Doir</h5>
+						<p class="pro-name">Product 1
+							(10 ml)</p>
+						<p>Delivered by
+							<span>Comming weekend</span>
+						</p>
+						<p>This is a test product added to test if it is added and how it is visible on front end</p>
+					</div>
+					<div class="cart-wishlist-button">
+
+
+						<input type="hidden" name="product" value="1">
+						<input type="hidden" name="size" value="1">
+						<button type="button" onclick="cart.remove(this)">
+							<i class="fa fa-trash"></i>
+							Remove</button>
+						<button type="button" onclick="cart.moveToWishlist(this)">
+							<i class="fa fa-heart-o"></i>
+							Move To Wishlist</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="product-price-wishlist">
+						<p>HKD
+							<span>9.00</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="quantity-wishlist">
+						<label>Qty</label>
+						<input type="number" min="1" name="quant" class="form-control form-control-sm" onchange="cart.update(this)" value="1">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+														<h4 class="mb-3">Your Wishlist
+	<span>(1 items)</span>
+</h4>
+	<div class="wishlist-container">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="wishlist-image">
+					<img src="/image/product/8" alt="Product 1">
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<div class="wishlist-product-description">
+					<h5>Doir</h5>
+					<p class="pro-name">Product 1
+						(10 ml)</p>
+					<p>Delivered by
+						<span>This weekend</span>
+					</p>
+					<p>This is a test product added to test if it is added and how it is visible on front end</p>
+				</div>
+				<div class="cart-wishlist-button">
+					<form method="post">
+						<input type="hidden" name="product" value="1">
+						<input type="hidden" name="size" value="1">
+						<button onclick="wishlist.remove(this)" type="button">
+							<i class="fa fa-trash"></i>
+							Remove</button>
+						<button onclick="wishlist.moveToCart(this)" type="button">
+							<i class="fa fa-shopping-cart"></i>
+							Move To Cart</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<div class="price-wishlist">
+					<p>HKD
+						<span>9.00</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		{% include "comp/footer.twig" %}
+		<script type="text/javascript" src="/js/script.min.js"></script>
+	</body>
+</html>

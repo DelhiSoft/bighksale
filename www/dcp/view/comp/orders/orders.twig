@@ -1,0 +1,37 @@
+<section
+	class="col-lg-12 connectedSortable">
+	<!-- Custom tabs (Charts with tabs)-->
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-chart-pie mr-1"></i>
+				Orders [{{data[0]['invno']}}]
+			</h3>
+		</div>
+
+		<div class="card-body">
+			<table class="table">
+			<tr>
+				<th>Sl. No.</th>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>MRP</th>
+				<th>Discount</th>
+				<th>Tax</th>
+				<th>Total</th>
+			</tr>
+				{% for info in infos %}
+                	<tr>
+						<td>{{loop.index}}</td>
+						<td>{{products[info.product].name}}</td>
+						<td>{{info.quant}}</td>
+						<td>{{info.mrp}}</td>
+						<td>{{info.discount}}</td>
+						<td>{{info.tax}}</td>
+						<td>{{info.total}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</section>

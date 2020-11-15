@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "comp/head.twig" %}
+  <body>
+    {% include "comp/header.twig" %}
+
+    <div class="container">
+        <div class="signin">
+            <h2 class="title">Sign in to your account</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label>Email / Mobile</label>
+                    <input class="input--style-3" type="text" name="user">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input class="input--style-3" type="password" name="password">
+                    <small>
+                </small>
+                </div>
+
+                <div class="text-center">
+                    <input type="hidden" name="action" value="login">
+                    <button class="btn btn-danger" type="submit">Login</button>
+                </div>
+
+                <div class="all-ready-user">
+                    <p>‘Don’t have account?
+                        <a href="/register">Sign up</a>
+                    </p>
+                    <p>
+                        <a href="/checkout/guest">Continue as guest</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+	
+	{% include "comp/footer.twig" %}
+    <script src="/js/script.min.js"></script>
+  </body>
+</html>

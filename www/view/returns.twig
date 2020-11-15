@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "comp/head.twig" %}
+  <body>
+    {% include "comp/header.twig" %}
+
+    <div class="container">
+    	<div class="dashcontrol">
+    		<div class="row">
+				<div class="col-md-3">
+					<div class="profile">
+						Hello, User!<br>
+						<a href="">Sign Out</a>
+					</div>
+					<ul class="prflleft">
+			            <li>
+			              <a href="/order">
+			                <i class="icon icon-notepad"></i> Order
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/address">
+			                <i class="icon icon-book"></i> Address
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/payment">
+			                <i class="icon icon-credit-card-o"></i> Payment
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/secrets-credits">
+			                <i class="icon icon-coins"></i> Secrets Credits
+			              </a>
+			            </li>
+			            <li class="active">
+			              <a href="/returns">
+			                <i class="icon icon-returns"></i> Returns
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/claims">
+			                <i class="icon icon-claims"></i> Claims
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/profile">
+			                <i class="icon icon-user"></i> Profile
+			              </a>
+			            </li>
+			        </ul>
+				</div>
+				<div class="col-md-9">
+					<div class="prflright">
+						<div class="prflrighttop">
+							<span class="ordtitle">Returns</span>
+							<a href="/returns-new" class="nfile"><i class="plus"></i> File a New Return Request</a>
+						</div>
+						<div class="prflrightbtm nbtm">
+							<div class="tab">
+							  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Returns Requested</button>
+							  <button class="tablinks" onclick="openCity(event, 'Paris')">Returns Delivered</button>
+							</div>
+
+							<div id="London" class="tabcontent">
+							  <div class="rrempaty"></div>
+							  <h3 class="ordtitle">We don't see any returns requested</h3>
+							  <p>Need to submit a request? Just click on the button below!</p>
+							</div>
+
+							<div id="Paris" class="tabcontent">								
+							  <div class="rrempaty"></div>
+							  <h3 class="ordtitle">You don't have any delivered returns requested yet!</h3>
+							</div>
+
+							<script>
+							function openCity(evt, cityName) {
+							  var i, tabcontent, tablinks;
+							  tabcontent = document.getElementsByClassName("tabcontent");
+							  for (i = 0; i < tabcontent.length; i++) {
+							    tabcontent[i].style.display = "none";
+							  }
+							  tablinks = document.getElementsByClassName("tablinks");
+							  for (i = 0; i < tablinks.length; i++) {
+							    tablinks[i].className = tablinks[i].className.replace(" active", "");
+							  }
+							  document.getElementById(cityName).style.display = "block";
+							  evt.currentTarget.className += " active";
+							}
+
+							// Get the element with id="defaultOpen" and click on it
+							document.getElementById("defaultOpen").click();
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+	{% include "comp/footer.twig" %}
+    <script src="/js/script.min.js"></script>
+  </body>
+</html>

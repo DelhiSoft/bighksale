@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="wishlist-and-cart-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 order-md-2 mb-4">
+						{% include "comp/pricing.twig" %}
+					</div>
+					{# Shopping Cart started #}
+					<div class="col-md-8 order-md-1">
+						{% include "comp/cart.twig" %}
+						{# Wishlist started #}
+						{% include "comp/wishlist.twig" %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+		{% include "comp/footer.twig" %}
+		<script src="/js/script.min.js"></script>
+	</body>
+</html>

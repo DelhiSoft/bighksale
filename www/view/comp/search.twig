@@ -1,0 +1,37 @@
+<div class="col-md-9 col-80 mob-100 m-t-sm-30 order-mob-3">
+	<div class="sright">
+		<form action="/search" method="post">
+			<div class="search_bar">
+				<input type="text" name="search" placeholder="Search">
+				<button>
+					<i class="fa fa-search"></i>
+				</button>
+			</div>
+		</form>
+		<div class="wishlist_and_cart">
+			<ul>
+				<li>
+					<a href="/wishlist">
+						<img src="/images/icons/wishlist.png" alt="wishlist">
+						<small>Wishlist</small>
+						<span data="wishlist">{{ count.wishlist }}</span>
+					</a>
+				</li>
+				<li>
+					<a href="/cart">
+						<img src="/images/icons/cart-icon.png" alt="Cart Icon">
+						<small>Cart</small>
+						<span data="cart">{{ count.cart }}</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" onclick="document.getElementById('id01').style.display='block'" class="drop-profile"><img src="/images/icons/user.png" alt="User"><small>Account</small></a>
+					<ul id="id01" class="daccount">
+						<li><a href="/login" data-toggle="modal" data-target="#login">Login</a></li>
+						<li><a href="/register" data-toggle="modal" data-target="#registor">Register</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

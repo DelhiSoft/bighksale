@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+	{% import "macros/comps.twig" as comp %}
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="detail-page">
+			<div class="container">
+				<div class="card">
+					<div class="row">
+						<aside class="col-lg-5 col-sm-6 col-100-767">
+							{{comp.productImages(prodimgs)}}
+
+							<div class="share-and-buy">
+								<h5 class="social-heading">Share this product on
+								</h5>
+								<div class="social-sharing">
+									<div data-network="facebook" class="st-custom-button facebook st-hide-label">
+										<i class="fa fa-facebook"></i>
+									</div>
+									<div data-network="twitter" class="st-custom-button twitter st-hide-label">
+										<i class="fa fa-twitter"></i>
+									</div>
+									<div data-network="whatsapp" class="st-custom-button whatsapp st-hide-label">
+										<i class="fa fa-whatsapp"></i>
+									</div>
+									<div data-network="linkedin" class="st-custom-button linkedin st-hide-label">
+										<i class="fa fa-linkedin"></i>
+									</div>
+								</div>
+							</div>
+						</aside>
+						<aside class="col-lg-4 col-sm-6 col-100-767">
+							<article class="card-body p-991-0">
+								<h2 class="details__page__brand__name">
+									<img src="/image/brand/{{product.brand}}">
+								</h2>
+								<h3 class="title mb-3">{{product.name}}</h3>
+								<ul class="price-detail-wrap">
+									<li>
+										<small>Was:</small>
+										<span class="num" data="mrp">
+											<dd>{{cur}}</dd>
+											{{product.mrp * rate}}</span>
+									</li>
+
+									<li>
+										<small>Now:</small>
+										<span class="nownum" data="dmrp">
+											<dd>{{cur}}</dd>
+											{{product.mrp * rate * (1 - product.dmrp/100)}}
+											<span class="vat">( Inclusive of VAT<dd>+ FREE delivery</dd>)</span>
+										</span>
+									</li>
+
+									<li>
+										<small>Saving:</small>
+										<span class="mrpsaving" data="savemrp">
+											<dd>{{cur}}</dd>
+											{{product.mrp * rate * product.dmrp / 100 }}
+										</span>
+										<span class="saving-percent" data="savepct">
+											{{product.dmrp}}% Off
+										</span>
+									</li>
+								</ul>
+								<div class="row">
+									<div class="col-md-12 col-sm-12 col-100-767">
+										<p class="quantity-label">Quantity:</p>
+										<form method="post">
+											<div class="quantity-cart">
+												<div class="form-group">
+													<input type="number" min="1" name="quant" class="form-control form-control-sm" style="width:100px" value="1">
+												</div>
+												<input type="hidden" name="product" value="{{product.id}}">
+												<button type="button" onclick="wishlist.add(this)" class="btn-equale btn-wishlist">Add to wishlist</button>
+												<button type="button" onclick="cart.add(this)" class="btn-equale btn-blue">Add to Cart</button>
+											</div>
+										</form>
+
+									</div>
+								</div>
+							</article>
+						</aside>
+						<div class="col-lg-3 col-sm-12 borer-l-1px">
+							<div class="from-right">
+								<ul>
+									<li>
+										<img src="/images/return.png" alt="">
+										This item cannot be exchanged or returned
+										<div class="jsx-1384785901 tooltipContainer">
+											<i class="fa fa-help">?</i>
+											<div class="jsx-1384785901 tooltipContentWrapper ">
+												<div class="jsx-1384785901 tooltip">
+													<div class="jsx-1384785901 tooltipText">
+														<span class="jsx-1872372835">Oops! This product is non-returnable. Everything you need to know about returns is right
+															<a href="#" class="jsx-1872372835 clickableLink">here</a>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<img src="/images/shop.png" alt="">
+										Sold by bighk sale 100% Genuine Product 100% Genuine Product
+									</li>
+
+									<li>
+										<img src="/images/truck.png" alt="">
+										<h6>
+											<span>TRUSTED SHIPPING</span>
+											This item cannot be exchanged or returned
+										</h6>
+									</li>
+									<li>
+										<img src="/images/shield.png" alt="">
+										<h6>
+											<span>SECURE SHOPPING</span>
+											Sold by bighk sale 100% Genuine Product
+										</h6>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% if product.video !='' %}
+			<div class="video">
+				<iframe width="800px" height="600px" src="{{product.video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		{% endif %}
+		<div class="overview-section">
+			<div
+				class="container">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs">
+					<li class="nav-item active">
+						<a class="nav-link active" data-toggle="tab" href="#Highlight">Highlights</a>
+					</li>
+					{% if product.specifications is defined %}
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#Specifications">Specifications</a>
+						</li>
+					{% endif %}
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#RATING">Reviews &amp; Ratings</a>
+					</li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+
+
+					<div class="tab-pane active" id="Highlight">
+						<div class="highlight">
+							{{product.highlights}}
+						</div>
+					</div>
+					{% if product.specifications is defined %}
+						<div class="tab-pane" id="Specifications">
+							<div class="specifications">
+								<h4>Specifications</h4>
+								<div class="w-100 d-flex flex-wrap-wrap">
+									<div class="inner-flex table-responsive">
+										<table>
+											{% for info in product.specifications %}
+												{% if loop.index % 2 ==1 %}
+													<tr>
+													{% endif %}
+													<td>{{info.name}}</td>
+													<td>{{info.value}}</td>
+													{% if loop.index % 2 ==0 %}
+													</tr>
+												{% endif %}
+											{% endfor %}
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+
+
+					<div class="tab-pane" id="RATING">
+						{{comp.ratingForm(product.id)}}
+						{{comp.ratingReviews(product.rating,product.reviews,product.ratingDesc)}}
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+		{% include "comp/related.twig" %}
+		{% include "comp/footer.twig" %}
+		<script type="text/javascript" src="/js/script.min.js"></script>
+	</body>
+</html>

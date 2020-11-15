@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "comp/head.twig" %}
+  <body>
+    {% include "comp/header.twig" %}
+
+    <div class="container">
+    	<div class="dashcontrol">
+    		<div class="row">
+				<div class="col-md-3">
+					<div class="profile">
+						Hello, User!<br>
+						<a href="">Sign Out</a>
+					</div>
+					<ul class="prflleft">
+			            <li class="active">
+			              <a href="/order">
+			                <i class="icon icon-notepad"></i> Order
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/address">
+			                <i class="icon icon-book"></i> Address
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/payment">
+			                <i class="icon icon-credit-card-o"></i> Payment
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/secrets-credits">
+			                <i class="icon icon-coins"></i> Secrets Credits
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/returns">
+			                <i class="icon icon-returns"></i> Returns
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/claims">
+			                <i class="icon icon-claims"></i> Claims
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/profile">
+			                <i class="icon icon-user"></i> Profile
+			              </a>
+			            </li>
+			        </ul>
+				</div>
+				<div class="col-md-9">
+					<div class="prflright">
+						<div class="prflrighttop">
+							<h1 class="ordtitle">Orders</h1>
+							<p>See how your orders are managed and check the latest status on your order</p>
+						</div>
+						<div class="prflrightbtm">
+							<img src="images/account/orders-empty.svg" alt="404" class="order">
+							<h1 class="ordtitle">You don't have any orders yet</h1>
+							<p>What are you waiting for? Start shopping!</p>
+							<a href="/index" class="cbutton">Continue Shopping</a>
+						</div>
+						<div class="orderdtl">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									Order Details
+								</div>
+							 	<div class="panel-body" id="address">
+									<div class="row">
+										<div class="col-3">
+											<img src="/image/" alt="">
+										</div>										
+										<div class="col-3">
+											Product name
+										</div>
+										<div class="col-3">
+											Price
+										</div>
+										<div class="col-3">
+											Total Price
+										</div>
+									</div>
+							 	</div>								 
+								<div class="panel-footer">
+									<div class="row">
+										<div class="col-3"></div>										
+										<div class="col-3">
+											10
+										</div>
+										<div class="col-3">
+											20
+										</div>
+										<div class="col-3">
+											20
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+	
+	{% include "comp/footer.twig" %}
+    <script src="/js/script.min.js"></script>
+  </body>
+</html>

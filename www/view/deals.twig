@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="product-page">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="filter-bar">
+							<h3>
+								<i class="fa fa-filter"></i>
+								Refine By
+								<span>&#10005;</span>
+							</h3>
+							<div class="by-categories">
+								<h6>Categories</h6>
+								<ul>
+									{% for cat in category %}
+										<li>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="category{{cat.id}}" name="{{cat.name}}">
+												<label class="custom-control-label" for="category{{cat.id}}">{{cat.name}}</label>
+											</div>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+							<div class="price-filter">
+								<div class="price-slider">
+									<h6>Price</h6>
+									<input type="text" class="js-range-slider" name="my_range" value="">
+								</div>
+							</div>
+							<div class="brand-wise">
+								<h6>Brand</h6>
+								<ul>
+									{% for brand in brands %}
+
+										<li>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" class="custom-control-input" id="brand{{brand.id}}" name="{{brand.name}}">
+												<label class="custom-control-label" for="brand{{brand.id}}">{{brand.name}}</label>
+											</div>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-9">
+						<div class="product-container">
+							<div class="after-mobile-convert-tab">
+								<h3>Products</h3>
+								<a href="#" class="hide-on-web">
+									<i class="fa fa-filter"></i>
+									Refine By</a>
+							</div>
+							<div class="flex-container justify-content-space-between">
+								{% for product in products %}
+									<div class="product-view-box">
+										<a href="/product/{{product.id}}">
+											<div class="product-image">
+												<img src="image/product/{{product.id}}" alt="">
+											</div>
+											<div class="product-title-description">
+												<h4>{{product.name}}</h4>
+												<p>{{product.description}}</p>
+												<div class="product-price">
+													<p>{{product.mrp}}
+														{{site.currency}}</p>
+													<p>{{product.dmrp}}
+														{{site.currency}}</p>
+												</div>
+											</div>
+										</a>
+										<div class="add-cart-and-boy-now">
+											<div class="product-buy">
+												<a href="javascript:void(0)" onclick="cart.add({{product.id}})">
+													<i class="fa fa-cart-plus"></i>Add to Cart</a>
+												<a href="/cart/add/{{product.id}}">Buy Now</a>
+											</div>
+											<h5 class="social-heading">Social Shering</h5>
+											<div class="social-sharing">
+												<div data-network="facebook" class="st-custom-button facebook">
+													<i class="fa fa-facebook"></i>
+												</div>
+												<div data-network="twitter" class="st-custom-button twitter">
+													<i class="fa fa-twitter"></i>
+												</div>
+												<div data-network="whatsapp" class="st-custom-button whatsapp">
+													<i class="fa fa-whatsapp"></i>
+												</div>
+												<div data-network="linkedin" class="st-custom-button linkedin">
+													<i class="fa fa-linkedin"></i>
+												</div>
+                                                <a href="/product/{{product.id}}">More</a>
+											</div>
+										</div>
+									</div>
+								{% endfor %}
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% include "comp/footer.twig" %}
+		<script type="text/javascript" src="/js/script.min.js"></script>
+	</body>
+</html>

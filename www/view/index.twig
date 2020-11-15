@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+	<body>
+		{% include "comp/header.twig" %}
+		{% include "comp/slider.twig" %}
+		{% include "comp/bigdeal.twig" %}
+		{% include "comp/categories.twig" %}
+		{% include "comp/latest.twig" %}
+		{% include "comp/advertisement.twig" %}
+		{% include "comp/hotitem.twig" %}
+		{% include "comp/advertisement.twig" %}
+		{% include "comp/brands.twig" %}
+		{% include "comp/footer.twig" %}
+		<script type="text/javascript" src="/js/script.min.js"></script>
+		{# // <script>
+		// {% include "script.js" %}
+		
+		// </script> #}
+		<script>
+		function BlockWebPage(msgHeading, msgContent) {
+    var overlay = document.createElement("div");
+    overlay.style = "position:fixed;\
+	top:0;\
+	left:0;\
+	right:0;\
+	bottom:0;\
+	background:rgba(0,0,0,0.6);\
+	z-index:999999999;";
+    document.querySelector("body").innerHTML = "";
+    document.querySelector("body").append(overlay);
+    var h1 = document.createElement("h1");
+    h1.style = "text-align:center;";
+    h1.innerHTML = msgHeading;
+    var content = document.createElement("div");
+    content.innerHTML = msgContent;
+    content.style = "font-size:20px;\
+	line-height:2;\
+	text-align:justify;";
+    var popup = document.createElement("div");
+    popup.append(h1);
+    popup.append(content);
+    popup.style = "position:fixed;\
+	left:50px;\
+	right:50px;\
+	top:50px;\
+	bottom:50px;\
+	background:#fff;\
+	z-index:9999999999;\
+	padding:20px;\
+	border:double #000 10px;";
+    document.querySelector("body").append(popup);
+}
+
+		</script>
+	</body>
+</html>

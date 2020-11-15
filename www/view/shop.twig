@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+	{% import "macros/comps.twig" as comp %}
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="product-page">
+			<div class="container">
+				<div class="row">
+					{% include "comp/filter.twig" %}
+
+					<div class="col-md-9">
+						<div class="product-container">
+							<div class="after-mobile-convert-tab">
+								<h3>Products</h3>
+								<a href="#" class="hide-on-web">
+									<i class="fa fa-filter"></i>
+									Refine By</a>
+							</div>
+							<div class="flex-container justify-content-flex-start">
+								{% for product in products %}
+									<div class="product-view-box">
+										{{comp.productCard(product,cur,rate)}}
+									</div>
+								{% endfor %}
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% include "comp/footer.twig" %}
+		<script type="text/javascript" src="/js/script.min.js"></script>
+		<script>
+		var curr={
+			name:"{{cur}}",
+			rate:{{rate}}
+		};
+			var intvl = setInterval(() => {
+if (typeof filter == "object") {
+filter.price.init({min: {{ price.min }}, max: {{ price.max }}, from: {{ price.fmin }}, to: {{ price.fmax }}});
+}
+}, 1000);
+		</script>
+	</body>
+</html>

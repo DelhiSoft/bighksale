@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="container">
+			<div class="row">
+				<h1 class="page-title-heading">{{policy.name}}</h1>
+			</div>
+
+			<div class="row">
+				<div class="content">
+					<p>{{policy.body}}</p>
+				</div>
+			</div>
+		</div>
+		{% include "comp/footer.twig" %}
+
+		<script type="text/javascript" src="/js/script.min.js"></script>
+	</body>
+</html>

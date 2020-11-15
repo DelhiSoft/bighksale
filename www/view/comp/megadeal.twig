@@ -1,0 +1,29 @@
+<section>
+	<div class="mega-deal">
+		<div class="container">
+			<div class="site-heading-area">
+				<h2 class="section-heading">Hot <span>Item</span>
+				</h2>
+				{# <span class="style-span">24 hrs Only</span> #}
+			</div>
+			<div class="owl-mega owl-carousel owl-theme">
+				{% for product in hotitem %}
+				<div class="item">
+					<div class="mega-deal-img">
+						<a href="/product/{{product.id}}">
+							<img src="/image/product/{{product.id}}" alt="{{product.name}}">
+						</a>
+					</div>
+					<div class="ribbon">
+				      <div class="wrap">
+				        <span class="ribbon6">hot item</span>
+				      </div>
+				    </div>
+				</div>
+			{% endfor %}
+				
+			</div>
+
+		</div>
+	</div>
+</section>

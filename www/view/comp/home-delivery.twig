@@ -1,0 +1,99 @@
+<div class="modal home-delivery" id="home_delivery" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+			</div>
+			<div class="modal-body">
+				<div class="register-full-width-container">
+					<div class="margin-auto">
+						<div class="auth-card">
+							<div class="auth-card-body">
+								<img src="/images/logo.png" alt="" style="margin: auto auto 30px; display: block;">
+								<h2 class="title">Delivery Address</h2>
+								<form method="POST" onsubmit="return pickup.home(this)">
+									<div class="form-group">
+										<label for="name">Name</label>
+										<input type="text" class='form-control' name='name' pattern="([a-zA-Z]{2,50} ){1,5}" required>
+										<span class="error"></span>
+									</div>
+									<div class="form-group">
+										<label for="phone">Contact Number</label>
+										<input type="tel" class="form-control" pattern="[0-9]{9,15}">
+										<span class="error"></span>
+									</div>
+									<div class="form-group">
+										<label for="email">E-Mail ID</label>
+										<input type="email" class="form-control">
+										<span class="error"></span>
+									</div>
+									<div class="row">
+										<div class="col-3">
+											<div class="form-group">
+												<label for="flat">flat</label>
+												<input type="text" class="form-control" value='' name='flat'>
+												<span class="error"></span>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="form-group">
+												<label for="floor">floor</label>
+												<input type="text" class="form-control" value='' name='floor'>
+												<span class="error"></span>
+											</div>
+										</div>
+										<div class="col-6">
+											<div class="form-group">
+												<label for="building">building</label>
+												<input type="text" class="form-control" value='' name='building' required>
+												<span class="error"></span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="street">street</label>
+										<input type="text" class="form-control" value='' name='street' required>
+										<span class="error"></span>
+									</div>
+									<div class="form-group">
+										<label for="area">area</label>
+										<input type="text" class="form-control" value='' name='area' required>
+										<span class="error"></span>
+									</div>
+                                    
+									<div class="row">
+										<div class="col-4">
+                                            <div class="form-group">
+                                                <label for="zipcode">zipcode</label>
+                                                <input type="text" class="form-control" value='' name='zip'>
+                                                <span class="error"></span>
+                                            </div>
+                                        </div>
+										<div class="col-4">
+                                            <div class="form-group">
+                                                <label for="city">city</label>
+                                                <input type="text" class="form-control" value='Hong Kong' name='city'>
+                                                <span class="error"></span>
+                                            </div>
+                                        </div> 
+										<div class="col-4">
+                                            <div class="form-group">
+                                                <label for="country">Country</label>
+                                                <input type="text" name="country" value='Hong Kong' class="form-control">
+                                                <span class="error"></span>
+                                            </div>  
+                                        </div>                                    
+                                    </div>
+									<input type="hidden" name="action" value="deliver-home">
+									<div class="form-group">
+										<button class="btn btn-primary" type="button" onclick="pickup.home(this)">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	{% include "comp/head.twig" %}
+	<body class="hold-transition login-page">
+		<div class="login-box">
+			<div class="login-logo">
+				<strong>Digitlism Control Panel</strong>
+			</div>
+			<div class="card">
+				<div class="card-body login-card-body">
+					<p class="login-box-msg">Authentication Required</p>
+
+					<form method="post">
+						<div class="input-group mb-3">
+							<input type="name" class="form-control" name='user' placeholder="Username">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-envelope"></span>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							<input type="password" class="form-control" name='pass' placeholder="Password">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-lock"></span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-8"></div>
+							<div class="col-4">
+								<button type="submit" class="btn btn-primary btn-block" name="action" value="login">Sign In</button>
+							</div>
+						</div>
+					</form>
+					<p class="mb-1">
+						<a href="javascript:alert('Contact to webmaster/website administrator to reset your password')">Forgot Password</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<script src="/dcp/plugins/jquery/jquery.min.js"></script>
+		<script src="/dcp/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="/dcp/dist/js/adminlte.min.js"></script>
+	</body>
+</html>

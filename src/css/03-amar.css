@@ -1,0 +1,14 @@
+.equal-height {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #eaeaea;
+}
+
+.product-title-description {
+    border-radius: 10px;
+}
+
+h2.section-heading {
+    margin-left: 0;
+    margin-bottom: 12px;
+}

@@ -1,0 +1,89 @@
+<section class="header_section m-b-0">
+	<header class="my_header">
+		<div class="top_strip_bar">
+			<div class="container container-mob">
+				<div class="row">
+					{% include "comp/topbar.twig" %}
+					<div class="col-md-5 col-12">
+						<div class="header_social">
+							<ul>
+								{% for social  in site.socials %}
+									<li>
+										<a href="{{social.link}}">
+											<i class="fa fa-{{social.icon}}-square"></i>
+										</a>
+									</li>
+								{% endfor %}
+								<li>
+									<div id="google_translate_element"></div>
+								</li>
+								<li>
+									<select name="currency" onchange='currency.change(this)'>
+										{% for item in ['HKD','USD','RMB','MOP'] %}
+											<option value="{{item}}" {{(item==cur)?"selected":""}}>{{item}}</option>
+										{% endfor %}
+									</select>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="main_header">
+			<div class="container container-mob">
+				<div class="row">
+					<div class="col-md-3 col-20">
+						<div class="logo">
+							<a href="/"><img src="/images/logo.png" alt="BigHKSale" height="190"></a>
+						</div>
+					</div>
+					<div class="mobile-triger">
+						<button>
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+					</div>
+					{% include "comp/search.twig" %}
+					<div class="col-md-12 order-mob-2 mob-col-80">
+						<div class="navigation_bar">
+							<div class="mobmshado"></div>
+							<div class="nav-control">
+								<a href="javascript:void(0)" class="close-btn">
+									<i class="fa fa-times"></i>
+								</a>
+								<ul>
+									<li class="position-inital">
+										<a href="/shop" class="active_hover">Shop All</a>
+									</li>
+									{% for category in categories %}
+										<li>
+											<a href="/category/{{category.link}}/{{category.id}}" class="active_hover {{(active==category.link)?'active':''}}">{{category.name}}</a>
+										</li>
+									{% endfor %}
+									{# <li><a href="#" class="active_hover">Big Deal</a></li>
+																																													<li><a href="#" class="active_hover">Gadgets</a></li>
+																																													<li><a href="/category/health---fitness/7" class="active_hover">Health</a></li>
+																																													<li><a href="/category/skin---beauty/10" class="active_hover">Beauty</a></li>
+																																													<li><a href="/category/home---kitchen/11" class="active_hover">Luxury</a></li>
+																																													<li><a href="/category/gem---jewellery/12" class="active_hover">Dining</a></li>
+																																													<li><a href="/category/fashion---lifestyle/13" class="active_hover">Computer</a></li>
+																																													<li><a href="/category/car---bike/14" class="active_hover">Automobile</a></li> #}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+</section>
+
+
+{% include "comp/login.twig" %}
+{% include "comp/registration.twig" %}
+{% include "comp/pickup.twig" %}
+{% include "comp/store-pickup.twig" %}
+{% include "comp/home-delivery.twig" %}

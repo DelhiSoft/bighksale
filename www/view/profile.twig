@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "comp/head.twig" %}
+  <body>
+    {% include "comp/header.twig" %}
+
+    <div class="container">
+    	<div class="dashcontrol">
+    		<div class="row">
+				<div class="col-md-3">
+					<div class="profile">
+						Hello, User!<br>
+						<a href="">Sign Out</a>
+					</div>
+					<ul class="prflleft">
+			            <li>
+			              <a href="/order">
+			                <i class="icon icon-notepad"></i> Order
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/address">
+			                <i class="icon icon-book"></i> Address
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/payment">
+			                <i class="icon icon-credit-card-o"></i> Payment
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/secrets-credits">
+			                <i class="icon icon-coins"></i> Secrets Credits
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/returns">
+			                <i class="icon icon-returns"></i> Returns
+			              </a>
+			            </li>
+			            <li>
+			              <a href="/claims">
+			                <i class="icon icon-claims"></i> Claims
+			              </a>
+			            </li>
+			            <li class="active">
+			              <a href="/profile">
+			                <i class="icon icon-user"></i> Profile
+			              </a>
+			            </li>
+			        </ul>
+				</div>
+				<div class="col-md-9">
+					<div class="prflright">
+						<div class="prflrighttop">
+							<h1 class="ordtitle">Profile</h1>
+							<p>Manage your profile details</p>
+						</div>
+						<div class="pcontrol">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									General Information
+								</div>
+							 	<div class="panel-body">
+									<form class="row" action="">
+										<div class="col-md-4 col-sm-4">
+											<div class="form-group">
+												<label for="name">Name</label>
+												<input class="form-control" type="text" id="name" name="name" value="Amar Kumar">
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="form-group">
+												<label for="email">Email</label>
+												<input class="form-control" type="email" id="email" name="email" value="xyz@gmail.com">
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4">
+											<div class="form-group">
+												<label for="language">Preferred language</label>
+												<select  class="form-control" name="language" id="language">
+													<option>English</option>
+													<option>اعربية</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="text-right">
+												<button type="submit" class="savebtn">Save</button>
+											</div>
+										</div>
+									</form>
+							 	</div>
+							</div>
+							<div class="panel panel-default secrity">
+								<div class="panel-heading">
+									Security
+								</div>
+							 	<div class="panel-body">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group" style="user-select: none;color: rgb(126, 133, 155);">
+												<label for="email">Email</label>
+												<input class="form-control" type="email" id="email" name="email" readonly value="amar.digitlism@gmail.com">
+												<span class="nchng">You cannot change your email</span>
+											</div>
+										</div>
+										<div class="col-md-6" style="user-select: none;color: rgb(126, 133, 155);">
+											<div class="form-group">
+												<label for="password">Password</label>
+												<input class="form-control" type="password" id="password" name="lname" readonly value="123456">
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="text-right">
+												<button onclick="document.getElementById('id02').style.display='block'" class="savebtn">Change Password</button>
+											</div>
+										</div>
+									</div>
+							 	</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									Add Your Address
+								</div>
+							 	<div class="panel-body" id="address">
+								 	<form class="needs-validation" method="post">
+										<div class="row">
+											<div class="col-md-4 col-sm-4">
+												<div class="form-group">
+													<label for="name">Your Name</label>
+													<input class="form-control" type="text" id="name" name="name" value="">
+													<div class="invalid-feedback">
+														Please enter your name.
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4 col-sm-4">
+												<div class="form-group">
+													<label for="email">Your Email</label>
+													<input class="form-control" type="email" id="email" name="email" value="">
+												<div class="invalid-feedback">
+													Please enter your email.
+												</div>
+												</div>
+											</div>
+											<div class="col-md-4 col-sm-4">
+												<div class="form-group">
+													<label for="language">Your Phone</label>
+													<input class="form-control" type="text" id="phone" name="phone" value="">
+												<div class="invalid-feedback">
+													Please enter your phone.
+												</div>
+												</div>
+											</div>
+
+											<div class="col-md-12 col-sm-12">
+												<div class="form-group">
+												<label for="address">Address</label>
+												<input type="text" class="form-control" id="address" name="addr" required="">
+												<div class="invalid-feedback">
+													Please enter your shipping address.
+												</div>
+												</div>
+											</div>
+
+											<div class="col-md-12 col-sm-12">
+												<div class="form-group">
+												<label for="address2">Address 2
+													<span class="text-muted">(Optional)</span>
+												</label>
+												<input type="text" class="form-control" id="address2" name="addr2">
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6 mb-3">
+												<div class="form-group">
+												<label for="country">Country</label>
+												<select class="custom-select d-block w-100" id="country" name="country" required="">
+													<option value="">Choose...</option>
+													<option value="uae" selected="">United Arab Emirets</option>
+												</select>
+												<div class="invalid-feedback">
+													Please select a valid country.
+												</div>
+												</div>
+											</div>
+											<div class="col-md-4 col-sm-4 mb-3">
+												<div class="form-group">
+												<label for="zip">Zip
+													<span class="text-muted">(Optional)</span>
+												</label>
+												<input type="tel" name="pinclode" class="form-control" id="zip" placeholder="">
+												<div class="invalid-feedback">Zip code required.</div>
+												</div>
+											</div>
+										</div>
+										<div class="text-right">
+											<button class="savebtn" type="button" onclick="makePayment()">Continue to checkout</button>
+										</div>
+									</form>
+							 	</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+	<div id="id02" class="modal">
+	    <div class="modal-content">
+	    	<h2>Change Password</h2>
+	        <p>Enter your current password and new password to change the password</p>
+	        <form action="">
+	        	<div class="form-group">
+	        		<label for="cpassword">Current Password</label>
+	        		<div class="cmanag">
+		        		<input type="password" id="cpassword" name="cpassword" value="" required="required">
+		        		<button class="shide"><img src="/images/icons/eye-closed.svg" alt="Show/Hide Password"></button>
+		        	</div>
+	        	</div>
+	        	<div class="form-group">
+	        		<label for="npassword">New Password</label>
+	        		<div class="cmanag">
+						<input type="password" id="npassword" name="npassword" value="" required="required">
+						<button class="shide"><img src="/images/icons/eye-closed.svg" alt="Show/Hide Password"></button>
+		        	</div>
+	        	</div>
+	        </form>
+	        <div class="row">
+		        <button onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+		        <button class="okbtn">OK</button>
+		    </div>
+	    </div>
+	</div>
+
+	
+	{% include "comp/footer.twig" %}
+    <script src="/js/script.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{% import "macros/comps.twig" as comp %}
+<section>
+	<div class="mega-deal">
+		<div class="container">
+			<div class="row">
+				<div class="site-heading-area">
+					<h2 class="section-heading">Hot
+						<span>Item</span>
+					</h2>
+					{# <span class="style-span">24 hrs Only</span> #}
+				</div>
+				<div class="owl-mega owl-carousel owl-theme">
+					{% for product in hotitem %}
+						{{comp.productCard(product,cur,rate,0)}}
+					{% endfor %}
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>

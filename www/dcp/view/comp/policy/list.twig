@@ -1,0 +1,28 @@
+<section
+	class="col-lg-12 connectedSortable">
+	<!-- Custom tabs (Charts with tabs)-->
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-chart-pie mr-1"></i>
+				Policy Pages
+			</h3>
+			<div class="card-tools">
+				<a href="/dcp/policy/add" class="button">Add</a>
+			</div>
+		</div>
+
+		<div class="card-body">
+			<table class="table">
+				{% for slide in data %}
+					<tr>
+						<td>{{slide.name}}</td>
+						<td>
+							<a href="/dcp/policy/delete/{{slide.id}}">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	{% include "comp/head.twig" %}
+	<body class="hold-transition sidebar-mini layout-fixed">
+		<div class="wrapper">
+			{% include "comp/header.twig" %}
+			{% include "comp/sidebar.twig" %}
+			<div
+				class="content-wrapper">
+				<!-- Content Header (Page header) -->
+				<div class="content-header">
+					<div class="container-fluid">
+						<div class="row mb-2">
+							<div class="col-sm-6">
+								<h1 class="m-0 text-dark">Dashboard</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Main content -->
+				<section class="content">
+					<div class="container-fluid">
+						<div class="row">
+							{% include "comp/"~form %}
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</body>
+	<script src="/dcp/plugins/jquery/jquery.min.js"></script>
+	<script src="/dcp/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/dcp/plugins/datatables/jquery.dataTables.js"></script>
+	<script src="/dcp/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="/dcp/dist/js/adminlte.min.js"></script>
+	<script src="/dcp/dist/js/demo.js"></script>
+	<script>
+		$ ('#datatable').DataTable (
+{
+
+"paging": true,
+"lengthChange": false,
+"searching": false,
+"ordering": true,
+"info": true,
+"autoWidth": false
+
+}
+);
+	</script>
+
+</html>

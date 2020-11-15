@@ -1,0 +1,48 @@
+<div class="modal" id="store_pickup" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+			</div>
+			<div class="modal-body">
+				<div class="register-full-width-container">
+					<div class="margin-auto">
+						<div class="auth-card">
+							<div class="auth-card-body">
+								<img
+								src="/images/logo.png" alt="" style="margin: auto auto 30px; display: block;">
+								{# <h2 class="title">Buy Info</h2> #}
+								<form method="post" onsubmit="return pickup.store(this)">
+									<div class="form-group">
+										<lable>Name</lable>
+										<input type="text" class="form-control" name="name">
+										<span class="error"></span>
+									</div>
+									<div class="form-group">
+										<lable>E-Mail ID</lable>
+										<input type="email" class="form-control" name="email">
+										<span class="error"></span>
+									</div>
+									<div class="form-group">
+										<lable>Contact Number</lable>
+										<input type="tel" class="form-control" name="phone">
+										<span class="error"></span>
+									</div>
+									<div class="form-group">
+										<lable>Pickup Location</lable>
+										<input type="text" class="form-control" name="address">
+										<span class="error"></span>
+									</div>
+									<div class="form-group">
+									<input type="hidden" name="action" value='store-pickup'>
+										<button class="btn btn-primary" type="button" onclick='pickup.store(this)'>Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

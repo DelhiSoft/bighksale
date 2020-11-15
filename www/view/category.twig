@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="product-page">
+			<div class="container">
+				<div class="categories-heading">
+					<h2>Categories</h2>
+				</div>
+				<div class="row">
+					{% for cat in category %}
+						<div class="col-sm-4">
+							<div class="categories-box">
+								<a href="javascript:void(0)" onclick="filter.category({{cat.id}})">
+								<img src="/image/category/{{cat.id}}" alt="{{cat.name}}">
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+
+			</div>
+		</div>
+		{% include "comp/footer.twig" %}
+		<script type="text/javascript" src="/js/script.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "twig/twig": "^3.0",
+        "optiwariindia/database": "^1.0",
+        "optiwariindia/webapi": "^1.0"
+    }
+}

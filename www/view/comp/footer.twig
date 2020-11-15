@@ -1,0 +1,121 @@
+<section class="m-b-0">
+	<div class="help-center-contact">
+		<div class="container">
+			<div class="row m-r-minus-30 m-l-minus-30 align-items-center">
+				<div class="col-md-3 mob-p-0">
+					<div class="help-center">
+						<h4>We’re Always Here To Help</h4>
+						<p>Reach out to us through any of these support channels</p>
+					</div>
+				</div>
+
+				<div class="col-md-3 mob-p-0">
+					<a href='{{site.contact.email.link}}' class="help-center">
+						<div class="icon-box">
+							<i class="fa fa-envelope"></i>
+						</div>
+						<div class="help-contact">
+							<h3>E-Mail us</h3>
+							<strong>{{site.contact.email.text}}</strong>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-md-3 mob-p-0">
+					<a href="{{site.contact.phone.link}}" class="help-center">
+						<div class="icon-box">
+							<i class="fa fa-phone"></i>
+						</div>
+						<div class="help-contact">
+							<h3>Phone</h3>
+							<strong>{{site.contact.phone.text}}</strong>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-md-3 mob-p-0">
+					<a class="help-center" href="{{site.contact.whatsapp.link}}">
+						<div class="icon-box">
+							<i class="fa fa-whatsapp"></i>
+						</div>
+						<div class="help-contact">
+						<h3>Whatsapp</h3>
+							<strong>{{site.contact.whatsapp.text}}</strong>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- help-center-contact -->
+
+<!-- footer -->
+<section class="m-b-0">
+	<footer class="my_footer">
+		<div class="container">
+			<div class="row m-b-50 m-r-minus-30 m-l-minus-30 m-b-mob-20">
+				<div class="col-md-3 mob-p-0 footer-ul-style">
+					<div class="footer-address footer-colom">
+						<h3>Registered Office Address:</h3>
+						<p>{{site.contact.address.text}}</p>
+					</div>
+					<div class="footer-contact">
+						<ul>
+							<li><a href="{{site.contact.phone.link}}"><i class="fa fa-phone"></i>{{site.contact.phone.text}}</a></li>
+							<li><a href="{{site.contact.email.link}}"><i class="fa fa-envelope"></i>{{site.contact.email.text}}</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col mob-p-0 footer-ul-style">
+					<div class="footer-colom">
+						<h3>About</h3>
+						<ul>
+							{% for link in footerlinks %}
+								<li>
+									<a href="{{link.href}}">{{link.text}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+				<div class="col mob-p-0 footer-ul-style">
+					<div class="footer-colom">
+						<h3>Policy</h3>
+						<ul>
+							{% for link in policies %}
+								<li>
+									<a href="/policy/{{link.id}}">{{link.name}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-4 mob-p-0">
+					<div class="footer-colom">
+						<h3>Facebook</h3>
+						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSangMediaHK%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+					</div>
+				</div>
+				{# <div class="col-md-3">
+					<iframe class="footer-iframe" width="100%" src="https://www.facebook.com/BigHKSale/"></iframe>
+				</div> #}
+			</div>
+			<div class="row m-r-minus-30 m-l-minus-30">
+				<div class="col-md-4 mob-p-0">
+					<div class="copyright">
+						<p>{{copyright}}</p>
+					</div>
+				</div>
+				<div class="col-md-7 mob-p-0">
+					<div class="copyright">
+						<img src="/images/payment-method.png" alt="Cards we accept">
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</section>

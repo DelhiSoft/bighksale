@@ -1,0 +1,59 @@
+<section
+	class="col-lg-12 connectedSortable">
+	<!-- Custom tabs (Charts with tabs)-->
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-chart-pie mr-1"></i>
+				{% if info is defined %}
+					Updating
+				{% else %}
+					Adding 
+				{% endif %}
+				Products Related to
+					{{info.name}}
+			</h3>
+			<div class="card-tools"></div>
+		</div>
+
+		<div class="card-body">
+			<form enctype="multipart/form-data" method="post">
+				<table class="table">
+					<tr>
+						<th> Sl. No.</th>
+						<th>Product</th>
+						<th></th>
+					</tr>
+					{% for item in related %}
+					<tr>
+						<td>{{loop.index}}</td>
+						<td>{{item.name}}</td>
+						<td><a href='/dcp/product/delrel/40/{{item.id}}'>Delete</a></td>
+					</tr>
+						
+					{% endfor %}
+					<tr>
+						<td>#</td>
+						<td>
+							<select name="relprod" class="form-control">
+								{% for prod in prods %}
+									<option value="{{prod.id}}">{{prod.name}}</option>
+								{% endfor %}
+							</select>
+						</td>
+						<td>
+							<button class="form-control btn-primary">Save</button>
+						</td>
+					</tr>
+				</table>
+				{% if info.id is defined %}
+					<input type="hidden" name="action" value="update-related-product">
+					<input type="hidden" name="id" value="{{info.id}}">
+				{% else %}
+
+					<input type="hidden" name="action" value="add-product">
+				{% endif %}
+			</form>
+		</div>
+	</div>
+</section>

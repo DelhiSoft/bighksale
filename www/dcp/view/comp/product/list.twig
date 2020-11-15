@@ -1,0 +1,72 @@
+<section
+	class="col-lg-12 connectedSortable">
+	<!-- Custom tabs (Charts with tabs)-->
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-chart-pie mr-1"></i>
+				Products
+			</h3>
+			<div class="card-tools">
+				<a href="/dcp/product/inventory" class="btn btn-sm btn-tool">
+				<i class="fa fa-store"></i>
+				Inventory</a>
+				<a href="/dcp/product/add" class="btn btn-sm btn-tool">
+				<i class="fa fa-plus-circle"></i>
+				Add</a>
+			</div>
+		</div>
+
+		<div class="card-body">
+			<table class="table">
+				<tr>
+					<th>#</th>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>MRP</th>
+					<th colspan="6"></th>
+				</tr>
+				{% for slide in data %}
+					<tr>
+						<td>
+							{{loop.index}}
+						</td>
+						<td>{{slide.name}}</td>
+						<td>{{slide.mrp}}</td>
+						<td>{{slide.dmrp}}</td>
+						<td>
+							<a href="/dcp/product/img/{{slide.id}}">
+							<i class="fa fa-file-image" title='Product Images'></i>
+							</a>
+						</td>
+						<td>
+							<a href="/dcp/product/update/{{slide.id}}">
+								<i class="fa fa-edit" title='Update'></i>
+							</a>
+						</td>
+						<td>
+							<a href="/dcp/product/specification/{{slide.id}}">
+							<i class="fa fa-table" title='specifications'></i>
+							</a>
+						</td>
+						<td>
+							<a href="/dcp/product/related/{{slide.id}}">
+								<i class="fa fa-retweet" title="Related"></i>
+							</a>
+						</td>
+						<td>
+							<a href="/dcp/product/video/{{slide.id}}">
+								<i class="fab fa-youtube" title="video"></i>
+							</a>
+						</td>						
+						<td>
+							<a href="/dcp/product/delete/{{slide.id}}">
+								<i class="fa fa-trash" title="Delete"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,113 @@
+<section
+	class="col-lg-12 connectedSortable">
+	<!-- Custom tabs (Charts with tabs)-->
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-chart-pie mr-1"></i>
+				{% if info is defined %}
+					Updating
+					{{info.name}}
+				{% else %}
+					Add New Product
+				{% endif %}
+			</h3>
+			<div class="card-tools"></div>
+		</div>
+
+		<div class="card-body">
+			<form enctype="multipart/form-data" method="post">
+				<table class="table">
+					<tr>
+						<th>Image</th>
+						<td>
+							<img src="/image/product/{{info.id}}" alt="{{info.name}}" width="100">
+							<input class="form-control" name="image" type="file">
+						</td>
+					</tr>
+					<tr>
+						<th>Name</th>
+						<td><input type="text" class="form-control" name="name" value="{{info.name}}"></td>
+					</tr>
+					<tr>
+						<th>Highlights</th>
+						<td>
+							<textarea name="description" cols="30" rows="10" class="form-control tinymce">{{info.description}}</textarea>
+						</td>
+					</tr>			
+					<tr>
+						<th>MRP</th>
+						<td><input type="text" class="form-control" name="mrp" value="{{info.mrp}}"></td>
+					</tr>
+					<tr>
+						<th>Discounted MRP</th>
+						<td><input type="text" class="form-control" name="dmrp" value="{{info.dmrp}}"></td>
+					</tr>
+					<tr>
+						<th>Category</th>
+						<td>
+							<select name="category" class="form-control">
+								<option value="0">Please Select</option>
+								{% for category in categories %}
+									<option value="{{category.id}}" {% if category.id == info.category %} selected {% endif %}>{{cats[category.id]['path']}}
+										({{category.name}})</option>
+								{% endfor %}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Brand</th>
+						<td>
+							<select name="brand" class="form-control">
+
+								<option value="" {% if info.brand is not defined %} selected {% endif %} disabled>Plese select</option>
+								{% for brand in brands %}
+									<option value="{{brand.id}}" {% if brand.id == info.brand %} selected {% endif %}>{{brand.name}}</option>
+								{% endfor %}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Big Deal</th>
+						<td>
+							<select name="featured" class='form-control'>
+								<option value="1" {% if info.featured == 1 %} selected {% endif %}>Yes</option>
+								<option value="0" {% if info.featured == 0 %} selected {% endif %}>No</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Latest Gadget</th>
+						<td>
+							<select name="new" class='form-control'>
+								<option value="1" {% if info.new == 1 %} selected {% endif %}>Yes</option>
+								<option value="0" {% if info.new == 0 %} selected {% endif %}>No</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Hot Item</th>
+						<td>
+							<select name="hot" class='form-control'>
+								<option value="1" {% if info.hot == 1 %} selected {% endif %}>Yes</option>
+								<option value="0" {% if info.hot == 0 %} selected {% endif %}>No</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button class="form-control btn-primary">Save</button>
+						</td>
+					</tr>
+				</table>
+				{% if info.id is defined %}
+					<input type="hidden" name="action" value="update-product">
+					<input type="hidden" name="id" value="{{info.id}}">
+				{% else %}
+
+					<input type="hidden" name="action" value="add-product">
+				{% endif %}
+			</form>
+		</div>
+	</div>
+</section>

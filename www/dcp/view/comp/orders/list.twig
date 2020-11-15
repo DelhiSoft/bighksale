@@ -1,0 +1,42 @@
+<section
+	class="col-lg-12 connectedSortable">
+	<!-- Custom tabs (Charts with tabs)-->
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-chart-pie mr-1"></i>
+			Orders
+			</h3>
+			
+		</div>
+
+		<div class="card-body">
+			<table class="table">
+			<tr>
+				<th>Invoice No.</th>
+				<th>Customer Name</th>
+				<th>E-Mail</th>
+				<th>Phone</th>
+				<th>Shipping Address</th>
+				<th>Invoice Amount</th>
+				<th>Payment Status</th>
+				<th>Actions</th>
+			</tr>
+				{% for info in data %}
+					<tr>
+						<td>{{info.invno}}</td>
+						<td>{{info.cname}}</td>
+						<td>{{info.cemail}}</td>
+						<td>{{info.cemail}}</td>
+						<td>{{info.shipping}}</td>
+						<td>{{info.invAmount}}</td>
+						<td>{{info.pstatus}}</td>
+						<td>
+						<a href="/dcp/orders/details/{{info.id}}">Show Details</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</section>

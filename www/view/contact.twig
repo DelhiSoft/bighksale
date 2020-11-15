@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "comp/head.twig" %}
+	<body>
+		{% include "comp/header.twig" %}
+		<div class="contact-page">
+			<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="contact-form">
+						<h2>Contact Us</h2>
+						<form method=post>
+							<div class="field-group">
+								<label>Name*</label>
+								<input type="text" name="name" pattern="[a-z A-Z]{2,100}" required>
+							</div>
+
+							<div class="field-group">
+								<label>E-Mail</label>
+								<input type="email" name="email" required onkeyup=enquiry.validate.email(this)>
+							</div>
+
+							<div class="field-group">
+								<label>Mobile Number</label>
+								<input type="tel" name="phone" pattern=[0-9]{10,13} required>
+							</div>
+
+							<div class="field-group">
+								<button type=button onclick=enquiry.submit(this)>Submit</button>
+								<input type="hidden" name="action" value="contact">
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="contact-page-content">
+						<ul>
+							<li><i class="fa fa-building"></i>{{site.contact.address.text}}</li>
+							<li><i class="fa fa-envelope"></i><a href="{{site.contact.email.link}}">{{site.contact.email.text}}</a></li>
+							<li><i class="fa fa-building"></i><a href="{{site.contact.phone.link}}">{{site.contact.phone.text}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		{% include "comp/footer.twig" %}
+		<script type="text/javascript" src="/js/script.min.js"></script>
+	</body>
+</html>

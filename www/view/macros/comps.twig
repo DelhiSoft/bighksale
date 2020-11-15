@@ -1,0 +1,220 @@
+{% macro socialShare(heading) %}
+	<div class="share-and-buy">
+		<h5 class="social-heading">{{heading}}</h5>
+		<div class="social-sharing">
+			<div data-network="facebook" class="st-custom-button facebook">
+				<i class="fa fa-facebook"></i>
+			</div>
+			<div data-network="twitter" class="st-custom-button twitter">
+				<i class="fa fa-twitter"></i>
+			</div>
+			<div data-network="youtube" class="st-custom-button youtube">
+				<i class="fa fa-youtube"></i>
+			</div>
+			<div data-network="instagram" class="st-custom-button instagram">
+				<i class="fa fa-instagram"></i>
+			</div>
+
+			<div data-network="whatsapp" class="st-custom-button whatsapp">
+				<i class="fa fa-whatsapp"></i>
+			</div>
+			<div data-network="linkedin" class="st-custom-button linkedin">
+				<i class="fa fa-linkedin"></i>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+{% macro productImages(Images) %}
+	<section id="default" class="padding-top0">
+		<div class="product-multi-img">
+			{% for productImage in Images %}
+				<div class="detail-col">
+					<a href="javascript:void(0)" onclick="showImage(this)">
+						<img src="/image/prodimg/{{productImage.id}}">
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="xzoom-container">
+			<img class="xzoom" id="xzoom-default" src="/image/prodimg/{{Images[0].id}}" xoriginal="/image/prodimg/{{Images[0].id}}">
+		</div>
+	</section>
+{% endmacro %}
+
+{% macro ratingReviews(rating,reviews,ratingDesc) %}
+	<div class="review-section">
+		<div class="row">
+			<div class="col-md-4 position-sticky">
+				<div class="col-sm-12">
+					<div class="rating-block">
+						<h2 class="bold padding-bottom-7">{{"%0.02f"|format(rating.stars)}}
+							<small>/ 5</small>
+						</h2>
+						{{_self.ratingBar(rating.stars)}}
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<h4>Rating breakdown</h4>
+					{% set rate = ratingDesc[4] %}
+					{{_self.rating(5,rate.count,rate.percent,'success')}}
+					{% set rate = ratingDesc[3] %}
+					{{_self.rating(4,rate.count,rate.percent,'primary')}}
+					{% set rate = ratingDesc[2] %}
+					{{_self.rating(3,rate.count,rate.percent,'info')}}
+					{% set rate = ratingDesc[1] %}
+					{{_self.rating(2,rate.count,rate.percent,'warning')}}
+					{% set rate = ratingDesc[0] %}
+					{{_self.rating(1,rate.count,rate.percent,'danger')}}
+				</div>
+			</div>
+
+			<div class="col-md-8">
+				<hr/>
+				<div class="review-block">
+					{% for rev in reviews %}
+						{{_self.review(rev)}}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+{% macro rating(value,count,percent,color) %}
+	<div class="pull-left">
+		<div class="pull-left" style="width:35px; line-height:1;">
+			<div style="height:9px; margin:5px 0;">{{value}}
+				<span class="glyphicon glyphicon-star"></span>
+			</div>
+		</div>
+		<div class="pull-left" style="width:180px;">
+			<div class="progress" style="height:9px; margin:8px 0;">
+				<div class="progress-bar progress-bar-{{color}}" role="progressbar" style="width:{{percent}}%">
+					<span class="sr-only"></span>
+				</div>
+			</div>
+		</div>
+		<div class="pull-right" style="margin-left:10px;">{{count}}</div>
+	</div>
+{% endmacro %}
+{% macro review(rev) %}
+	<div class="row">
+		<div class="col-sm-3">
+			<img src="{{rev.client.image}}" class="img-rounded" width="100" height="100">
+			<div class="review-block-name">
+				<a href="javascirpt:void(0)">{{rev.client.firstname}}
+					{{rev.client.lastname}}</a>
+			</div>
+			<div
+				class="review-block-date">{# January 29, 2016<br/>1 day ago #}
+			</div>
+		</div>
+		<div class="col-sm-9">
+			{{_self.ratingBar(rev.rating)}}
+			<div class="review-block-title"></div>
+			<div class="review-block-description">{{rev.review}}</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro ratingBar(rating) %}
+	<div class="review-block-rate">
+		{% for i in 0..4 %}
+			{% if i < rating %}
+				{% set color = "warning" %}
+			{% else %}
+				{% set color = "default" %}
+			{% endif %}
+			<button type="button" class="btn btn-{{color}} btn-xs" aria-label="Left Align">
+				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+			</button>
+		{% endfor %}
+	</div>
+{% endmacro %}
+{% macro productCard(product,cur="HKD",rate=1,disp=1) %}
+	<div class="item {{(product.mrp==0)?"soldout":""}}">
+		<div class="equal-height">
+			<form method="post">
+				<input type="hidden" name="product" value="{{product.id}}">
+				<button class="wishlist-btn" type="button" onclick="wishlist.toggle(this)">
+					<div class="wrapper">
+						<div class="icon-wishlist"></div>
+					</div>
+				</button>
+				<a href="/product/{{product.id}}">
+					<div class="feature-product">
+						<img src="/image/product/{{product.id}}" alt="{{product.name}}">
+					</div>
+					<div class="product-title-description">
+						<h4>{{product.name}}</h4>
+						<p>{{product.description}}</p>
+						<div class="product-price">
+							<p>
+								{{cur}}
+								{{"%0.02f"|format(product.mrp * rate)}}
+							</p>
+							<p>
+								{{cur}}
+								{{"%0.02f"|format(rate * product.mrp * (1 - product.dmrp/100))}}
+							</p>
+						</div>
+					</div>	
+				</a>		
+				{% if disp==1 %}
+					<div class="product-buy">
+						<button type=button onclick="cart.add({{product.id}})">
+							<i class="fa fa-cart-plus"></i>Add to Cart</button>
+						<button type=button onclick="cart.buy({{product.id}})">Buy Now</button>
+					</div>
+				{% endif %}
+					{# {% if disp==1 %}
+					
+						<div class="product-buy">
+							<button type=button onclick="cart.add(this)">
+								<i class="fa fa-cart-plus"></i>Add to Cart</button>
+							<button type=button onclick="cart.buy({{product.id}})">Buy Now</button>
+						</div>
+					{% endif %} #}
+			</form>			
+		</div>
+		{% if (product.mrp==0) %}
+			<div class="ribbon">
+				<a href="/product/{{product.id}}" class="wrap">
+					<span class="ribbon6">Sold Out</span>
+				</a>
+			</div>
+		{% else %}
+		{% if product.hot == 1 %}
+			<div class="ribbon">
+				<a href="/product/{{product.id}}" class="wrap">
+					<span class="ribbon6">hot item</span>
+				</a>
+			</div>
+		{% endif %}
+			
+		{% endif %}
+	</div>
+{% endmacro %}
+{% macro ratingForm(product) %}
+	<form method="post">
+		<input type="hidden" name="product" value={{product}}>
+		<input type="hidden" name="action" value="add-review">
+		<fieldset>
+			<span class="star-cb-group">
+				<input type="radio" id="rating-5" name="rating" value="5"/><label for="rating-5">5</label>
+				<input type="radio" id="rating-4" name="rating" value="4"/><label for="rating-4">4</label>
+				<input type="radio" id="rating-3" name="rating" value="3"/><label for="rating-3">3</label>
+				<input type="radio" id="rating-2" name="rating" value="2"/><label for="rating-2">2</label>
+				<input type="radio" id="rating-1" name="rating" value="1" checked/><label for="rating-1">1</label>
+			</span>
+		</fieldset>
+		<div class="col mt-1">
+			<div class="form-group">
+				<label for="">Comment</label>
+				<textarea name="review" cols="30" class="form-control" rows="2"></textarea>
+			</div>
+			<div class="form-group" style='width:100%;float:left'>
+				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+			</div>
+		</div>
+	</form>
+{% endmacro %}

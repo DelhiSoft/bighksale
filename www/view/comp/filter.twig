@@ -1,0 +1,46 @@
+<div class="col-md-3">
+	<div class="filter-bar">
+		<h3>
+			<i class="fa fa-filter"></i>
+			Refine By
+			<span>&#10005;</span>
+		</h3>
+		<div class="price-filter">
+			<form method="post">
+				<div class="price-slider">
+					<h6>Price</h6>
+					<input type="text" class="js-range-slider" name="my_range" value="" onchange="filter.price.update(this.form)">
+				</div>
+			</form>
+		</div>
+		<div class="by-categories">
+			<h6>Categories</h6>
+			<ul>
+				{% for id,cat in cats %}
+					<li>
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" filtercat={{id}} onchange=filter.category.update(this) id="category{{id}}" name="{{cat.name}}">
+							<label class="custom-control-label" for="category{{id}}">{{cat.name}}</label>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="brand-wise">
+			<h6>Brand</h6>
+			<form method="post">
+				<ul>
+					{% for brand in brands %}
+
+						<li>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" brand={{brand.id}} id="brand{{brand.id}}" name="{{brand.name}}" {% if brand.selected is defined %} checked {% endif %}>
+								<label class="custom-control-label" for="brand{{brand.id}}">{{brand.name}}</label>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</form>
+		</div>
+	</div>
+</div>

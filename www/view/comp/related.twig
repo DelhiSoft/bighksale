@@ -1,0 +1,25 @@
+{% import "macros/comps.twig" as comp %}
+{% if related|length > 0 %}
+<section>
+	<div class="mega-deal">
+		<div class="container">
+			<div class="row">
+				<div class="site-heading-area">
+					<h2 class="section-heading">Related
+						<span>Products</span>
+					</h2>
+					{# <span class="style-span">24 hrs Only</span> #}
+				</div>
+				<div class="owl-mega owl-carousel owl-theme">
+					{% for product in related %}
+						{{comp.productCard(product,0)}}
+					{% endfor %}
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+{% endif %}

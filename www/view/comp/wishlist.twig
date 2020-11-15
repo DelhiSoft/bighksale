@@ -1,0 +1,45 @@
+<h4 class="mb-3">Your Wishlist
+	<span>({{wishlist|length}} items)</span>
+</h4>
+{% for item in wishlist %}
+	<div class="wishlist-container">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="wishlist-image">
+					<img src="/image/product/{{item.product.id}}" alt="{{item.product.name}}">
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<div class="wishlist-product-description">
+					<h5>{{brand[item.product.brand]}}</h5>
+					<p class="pro-name">{{item.product.name}}
+						({{item.size.name}})</p>
+					<p>Delivered by
+						<span>This weekend</span>
+					</p>
+					<p>{{item.product.summary}}</p>
+				</div>
+				<div class="cart-wishlist-button">
+					<form method="post">
+						<input type="hidden" name="product" value={{item.product.id}}>
+						<button onclick="wishlist.remove(this)" type="button">
+							<i class="fa fa-trash"></i>
+							Remove</button>
+						<button onclick="wishlist.moveToCart(this)" type="button">
+							<i class="fa fa-shopping-cart"></i>
+							Move To Cart</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<div class="price-wishlist">
+					<p>HKD
+						<span>{{"%0.02f"|format(( 1 - item.product.dmrp/100) * item.product.mrp)}}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endfor %}

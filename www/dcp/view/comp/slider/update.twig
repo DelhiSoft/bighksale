@@ -1,0 +1,57 @@
+<section
+	class="col-lg-12 connectedSortable">
+	<!-- Custom tabs (Charts with tabs)-->
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-chart-pie mr-1"></i>
+				Slider - Home Page
+			</h3>
+			<div class="card-tools"></div>
+		</div>
+
+		<div class="card-body">
+			<form enctype="multipart/form-data" method="post">
+				<table class="table">
+					<tr>
+						<th>Banner</th>
+						<td>
+							<input class="form-control" name="image" type="file">
+              <span>Note: Don't upload a file if you don't want to change it</span>
+						</td>
+					</tr>
+					<tr>
+						<th>ALT</th>
+						<td><input type="text" class="form-control" name="alt" value=""></td>
+					</tr>
+					<tr>
+						<th>Banner Text -1</th>
+						<td><input type="text" class="form-control" name="bt1" value=""></td>
+					</tr>
+					<tr>
+						<th>Banner Text -2</th>
+						<td><input type="text" class="form-control" name="bt2" value=""></td>
+					</tr>
+					<tr>
+						<th>Banner Text -3</th>
+						<td><input type="text" class="form-control" name="bt3" value=""></td>
+					</tr>
+					<tr>
+						<th>Button Text</th>
+						<td><input type="text" class="form-control" name="btn_txt" value=""></td>
+					</tr>
+					<tr>
+						<th>Button Link</th>
+						<td><input type="text" class="form-control" name="btn_link" value=""></td>
+					</tr>
+					<tr>
+						<td colspan=2>
+							<button class="form-control btn-primary">Save</button>
+						</td>
+					</tr>
+				</table>
+				<input type="hidden" name="action" value="add-slider">
+			</form>
+		</div>
+	</div>
+</section>
